@@ -13,4 +13,27 @@
 		USER_PASSWORD = #{user_password}
 	</select>
 	
+	<!-- 회원가입 -->
+	<insert id="signup">
+		insert into board_user
+		(user_idname,    user_nickname,    user_warning, user_visible,
+		 user_profile,    user_email) values
+		(#{user_idname}, #{user_nickName}, 0,		     1,           
+		 #{user_profile}, #{user_email})
+	</insert>
+	
+	<select id="sns_login" resultType="com.org.proj.domain.UserVo">
+		SELECT * FROM
+		board_user
+		WHERE
+		user_email = #{user_email}
+	</select>
+	
+	<select id="search_email" resultType="int">
+		SELECT count(*) FROM
+		board_user
+		WHERE
+		user_email = #{user_email}
+	</select>
+	
   </mapper>

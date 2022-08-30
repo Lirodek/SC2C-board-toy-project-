@@ -17,6 +17,6 @@ public class UserVo {
 	private String user_visible;
 	private int user_un;
 	private String user_profile;
-	
+	private String user_email;
 }
 

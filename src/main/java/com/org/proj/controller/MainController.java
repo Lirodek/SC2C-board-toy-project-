@@ -33,7 +33,7 @@ public class MainController {
 	public String another_home(Model model) {
 		
 		model.addAttribute("mainUrl", "main/main" );
-		mainUrl="main";
+
 		return "home";
 	}
 	
@@ -41,9 +41,9 @@ public class MainController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model) {
-		
-		model.addAttribute("mainUrl", "main/login" );
 		mainUrl="login";
+		model.addAttribute("mainUrl", "main/login" );
+
 		return "home";
 	}
 	

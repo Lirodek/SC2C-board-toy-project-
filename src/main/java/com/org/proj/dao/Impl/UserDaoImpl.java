@@ -23,4 +23,24 @@ public class UserDaoImpl implements UserDAO{
 		return session.selectOne(nameSpace + ".login", vo) ;
 	}
 
+	@Override
+	public void signup(UserVo vo) throws Exception {
+		session.insert(nameSpace + ".signup", vo) ;
+		
+	}
+
+	@Override
+	public int email_check(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return session.selectOne(nameSpace + ".search_email", vo) ;
+		
+	}
+
+	@Override
+	public UserVo sns_login(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(nameSpace+ ".sns_login", vo);
+	}
+
 }

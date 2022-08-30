@@ -19,4 +19,22 @@ public class UserServiceImpl implements UserService{
 		return dao.userLogin(vo);
 	}
 
+	@Override
+	public void signup(UserVo dto) throws Exception {
+		// TODO Auto-generated method stub
+		dao.signup(dto);
+	}
+
+	@Override
+	public int email_check(UserVo dto) throws Exception {
+		return dao.email_check(dto);
+		
+	}
+
+	@Override
+	public UserVo sns_login(UserVo dto) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.sns_login(dto);
+	}
+
 }

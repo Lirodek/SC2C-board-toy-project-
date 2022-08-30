@@ -43,7 +43,7 @@
 			<h4>프로토스 게시판</h4>
 			<p>우리는 지금 아르타니스의 시대에 살고있다, 전사들이여 일어나라!</p>
 			<p>
-				<a class="btn btn-default" href="instructor.jsp">자세히 알아보기</a>
+				<a class="btn btn-default" href="board_protoss">자세히 알아보기</a>
 			</p>
 		</div>
 		<div class="col-md-4">

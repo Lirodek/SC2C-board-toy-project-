@@ -10,4 +10,13 @@ public interface UserDAO {
 	 * @return user
 	 */
 	public UserVo userLogin(UserVo vo) throws Exception;
+	
+	// 회원가입 (모든정보)
+	public void signup(UserVo vo) throws Exception;
+	
+	// 회원가입 (모든정보)
+	public int email_check(UserVo vo) throws Exception;
+	
+	// 회원가입 (모든정보)
+	public UserVo sns_login(UserVo vo) throws Exception;
 }
