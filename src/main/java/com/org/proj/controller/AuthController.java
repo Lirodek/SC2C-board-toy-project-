@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.org.proj.domain.UserVo;
 import com.org.proj.service.UserService;
+import com.org.proj.utill.MsgMaker;
 
 /**
  * Handles requests for the application home page.
@@ -56,6 +57,7 @@ public class AuthController {
 			service.signup(vo);
 		}
 		vo = service.sns_login(vo);
+		rttr.addFlashAttribute("msg", MsgMaker.LOGIN_SUCCESS+vo.getUser_nickName()+"님 반갑습니다.");
 		session.setAttribute("user", vo);
 		return "redirect:/";
 

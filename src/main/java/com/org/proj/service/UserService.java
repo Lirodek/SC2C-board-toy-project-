@@ -14,4 +14,13 @@ public interface UserService {
 	
 	// sns로그인 (모든정보)
 	public UserVo sns_login(UserVo dto) throws Exception;
+	
+	// 회원가입 (모든정보)
+	public void signup_main(UserVo dto) throws Exception;
+	
+	// 아이디 체크
+	public int checkId(UserVo vo) throws Exception;
+	
+	// 닉네임 체크
+	public int checkNickName(UserVo vo) throws Exception;
 }

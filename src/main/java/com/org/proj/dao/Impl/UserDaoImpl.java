@@ -28,6 +28,8 @@ public class UserDaoImpl implements UserDAO{
 		session.insert(nameSpace + ".signup", vo) ;
 		
 	}
+	
+	
 
 	@Override
 	public int email_check(UserVo vo) throws Exception {
@@ -41,6 +43,25 @@ public class UserDaoImpl implements UserDAO{
 	public UserVo sns_login(UserVo vo) throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectOne(nameSpace+ ".sns_login", vo);
+	}
+
+	@Override
+	public void signup_main(UserVo vo) throws Exception {
+		
+		session.insert(nameSpace + ".signup_main", vo);
+		
+	}
+
+	@Override
+	public int checkId(UserVo vo) throws Exception {
+		System.out.println(vo);
+		return session.selectOne(nameSpace+".checkId", vo);
+	}
+
+	@Override
+	public int checkNickName(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(nameSpace+".checkNickName", vo);
 	}
 
 }

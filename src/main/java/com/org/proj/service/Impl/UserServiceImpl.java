@@ -37,4 +37,22 @@ public class UserServiceImpl implements UserService{
 		return dao.sns_login(dto);
 	}
 
+	@Override
+	public void signup_main(UserVo dto) throws Exception {
+		dao.signup_main(dto);
+		
+	}
+
+	@Override
+	public int checkId(UserVo vo) throws Exception {
+		
+		return dao.checkId(vo);
+	}
+
+	@Override
+	public int checkNickName(UserVo vo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.checkNickName(vo);
+	}
+
 }

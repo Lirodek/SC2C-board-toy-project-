@@ -10,16 +10,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.org.proj.domain.UserVo;
 import com.org.proj.service.UserService;
+import com.org.proj.utill.MsgMaker;
 
 @Controller
 public class UserController {
 
 	@Inject
 	private UserService service;
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
@@ -38,17 +41,18 @@ public class UserController {
 			RedirectAttributes rttr, HttpSession session, Model model) throws Exception {
 		MainController.mainUrl="login";
 		UserVo vo = new UserVo();
+		idname = idname.replace(" ", "");
 		vo.setUser_idname(idname);
 		vo.setUser_password(pw);
 		vo = service.login(vo);
 		String url = "";
 		if (vo == null) {
-			rttr.addFlashAttribute("msg", "로그인 실패");
+			model.addAttribute("msg", MsgMaker.LOGIN_FAIL);
 			url = "login";
 			model.addAttribute("mainUrl", "main/" + url);
 			return "home";
 		} else {
-			rttr.addFlashAttribute("msg", "로그인 성공");
+			rttr.addFlashAttribute("msg", MsgMaker.LOGIN_SUCCESS+vo.getUser_nickName()+"님 반갑습니다.");
 			url = "main";
 			model.addAttribute("mainUrl", "main/" + url);
 			session.setAttribute("user", vo);
@@ -63,7 +67,7 @@ public class UserController {
 		String url = "";
 		session.invalidate();
 
-		rttr.addFlashAttribute("msg", "로그아웃 하였습니다.");
+		rttr.addFlashAttribute("msg", MsgMaker.LOGOUT);
 		url = "login";
 		model.addAttribute("mainUrl", "main/" + url);
 		return "redirect:/";
@@ -77,5 +81,50 @@ public class UserController {
 		return "home";
 
 	}
+	/**
+	 * 메인 회원가입
+	 * @param rttr
+	 * @param session
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/signup_Action", method = RequestMethod.POST)
+	public String signup_Post(RedirectAttributes rttr, HttpSession session, Model model, UserVo vo) throws Exception {
+		
+		
+		vo.setUser_profile("resources/imgs/default_profile.jpeg");
+		vo.setUser_email("");
+		model.addAttribute("msg", MsgMaker.SIGNUP);
+		
+		service.signup_main(vo);
+		
+		String url = "main";
+		model.addAttribute("mainUrl", "main/" + url);
+		return "home";
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/nicknameChk", method = RequestMethod.POST)
+	public int nickNameCheck(UserVo vo) throws Exception {
+		return service.checkNickName(vo);
+	}
+	
+	/**
+	 * 
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/idChk", method = RequestMethod.POST)
+	public int idChk(UserVo vo) throws Exception {
+		return  service.checkId(vo);
+	}
+	
+	
+
 
 }
