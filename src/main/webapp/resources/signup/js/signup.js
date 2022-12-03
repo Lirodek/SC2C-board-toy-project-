@@ -21,6 +21,7 @@ var label_pwc =document.getElementById("label_PWC");
 var label_nick = document.getElementById("label_Nick");
 
 function test() {
+	console.log(id_check_type + "" + name_check_type + "" + password_check_type + "" + password_checkCon_type);
 	if(id_check_type){
 		if(name_check_type){
 			if(password_check_type){
@@ -75,19 +76,19 @@ function pwCheck(){
 	if (pw.val().length == "") {
 			label_pw.style.color = "red"
 			label_pw.innerText = "패스워드를 입력해주세요";
-			id_check_type = false;
+			password_check_type = false;
 	} else if(pw.val().length <8){
 			label_pw.style.color = "red"
 			label_pw.innerText = "8글자 이상으로 지어주세요";
-			id_check_type = false;
+			password_check_type = false;
 	} else if (!(regexp_postalcode.test(pw.val()))) {
 		label_pw.style.color = "red"
 		label_pw.innerText = "특수문자를 포함해주세요";
-		id_check_type = false;
+		password_check_type = false;
 	} else {
 		label_pw.style.color = "green"
 		label_pw.innerText = " ";
-		id_check_type = false;
+		password_check_type = true;
 	}
 }
 /**
@@ -130,6 +131,7 @@ function fn_idChk() {
 				label_idname.style.color = "green"
 				label_idname.innerText = "사용 가능한 아이디입니다.";
 				id_check_type = true;
+				console.log(id_check_type);
 			}
 		}
 	});

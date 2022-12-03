@@ -26,7 +26,7 @@
 			테란, 저그, 프로토스의 대한 생각과 여러분의 공략을 공유해주세요
 		</p>
 		<p class="text-center">
-			<a class="btn btn-primary btn-lg" href="board/show" role="button">게시판
+			<a class="btn btn-primary btn-lg" href="board/board_protoss" role="button">게시판
 				구경하기</a>
 		</p>
 	</div>

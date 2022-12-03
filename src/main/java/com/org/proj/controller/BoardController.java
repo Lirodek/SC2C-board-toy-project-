@@ -23,7 +23,7 @@ public class BoardController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
-	@RequestMapping(value = "/board_protoss", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/board_protoss", method = RequestMethod.GET)
 	public String logout_Action(RedirectAttributes rttr, HttpSession session, Model model) throws Exception {
 
 		String url = "";

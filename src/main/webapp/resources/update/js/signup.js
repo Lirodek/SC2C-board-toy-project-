@@ -95,7 +95,8 @@ function passwordChecked() {
 }
 
 function submitBtn() {
-	if (id_check_type) {
+	console.log("");
+	if (id_check_type == true) {
 		if (name_check_type) {
 			if (password_check_type || name_check_type || id_check_type) {
 				submitButton.type = "submit"
