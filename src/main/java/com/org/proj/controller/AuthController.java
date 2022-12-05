@@ -57,7 +57,7 @@ public class AuthController {
 			service.signup(vo);
 		}
 		vo = service.sns_login(vo);
-		rttr.addFlashAttribute("msg", MsgMaker.LOGIN_SUCCESS+vo.getUser_nickName()+"님 반갑습니다.");
+		rttr.addFlashAttribute("msg", MsgMaker.LOGIN_SUCCESS+vo.getUserNickName()+"님 반갑습니다.");
 		session.setAttribute("user", vo);
 		return "redirect:/";
 
@@ -66,11 +66,11 @@ public class AuthController {
 	private UserVo voMaker(String email, String image) {
 		Random rand = new Random();
 		UserVo vo = new UserVo();
-		vo.setUser_password("");
-		vo.setUser_idname("");
-		vo.setUser_email(email);
-		vo.setUser_profile(image + "{0");
-		vo.setUser_nickName(rand_ninck[rand.nextInt(1000) % rand_ninck.length]);
+		vo.setUserPassword("");
+		vo.setUserIdname("");
+		vo.setUserEmail(email);
+		vo.setUserProfile(image + "{0");
+		vo.setUserNickName(rand_ninck[rand.nextInt(1000) % rand_ninck.length]);
 		
 		return vo;
 	}

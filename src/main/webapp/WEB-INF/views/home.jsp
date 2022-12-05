@@ -12,6 +12,7 @@
 <body>
 	
 	<jsp:include page="nav.jsp"/>
+	
 	<jsp:include page="${mainUrl }.jsp"/>
 	<jsp:include page="footer.jsp"/>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

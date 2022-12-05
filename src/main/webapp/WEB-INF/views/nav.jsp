@@ -23,7 +23,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">소개<span class="sr-only"></span></a></li>
-					<li><a href="${pageContext.request.contextPath}/instructor">팀원 소개</a></li>
+					<li><a href="${pageContext.request.contextPath}/util/instructor">유틸</a></li>
 					<li class="dropdown"><a href="" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">게시판<span class="caret"></span></a>

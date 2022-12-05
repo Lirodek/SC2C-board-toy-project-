@@ -8,9 +8,9 @@
 		SELECT * FROM
 		BOARD_USER
 		WHERE
-		USER_IDNAME = #{user_idname}
+		USER_IDNAME = #{userIdname}
 		AND
-		USER_PASSWORD = #{user_password}
+		USER_PASSWORD = #{userPassword}
 	</select>
 	
 	<!-- 회원가입 -->
@@ -18,45 +18,45 @@
 		insert into board_user
 		(user_idname,    user_nickname, user_warning, user_visible,
 		 user_profile,    user_email) values
-		(#{user_idname}, #{user_nickName}, 0, 1,           
-		 #{user_profile}, #{user_email})
+		(#{userIdname}, #{userNickName}, 0, 1,           
+		 #{userProfile}, #{userEmail})
 	</insert>
 	
 	<!-- 회원가입 -->
 	<insert id="signup_main">
 		insert into board_user
-		(user_idname,    user_nickname,    user_warning, user_visible,
-		    user_password) values
-		(#{user_idname}, #{user_nickName}, 0,		     1,           
-		  #{user_password})
+		(userIdname,    userNickname,    userWarning, userVisible,
+		    userPassword) values
+		(#{userIdname}, #{userNickName}, 0,		     1,           
+		  #{userPassword})
 	</insert>
 	
 	<select id="sns_login" resultType="com.org.proj.domain.UserVo">
 		SELECT * FROM
 		board_user
 		WHERE
-		user_email = #{user_email}
+		user_email = #{userEmail}
 	</select>
 	
 	<select id="search_email" resultType="int">
 		SELECT count(*) FROM
 		board_user
 		WHERE
-		user_email = #{user_email}
+		user_email = #{userEmail}
 	</select>
 	
 	<select id="checkId" resultType="int">
 		SELECT count(*) FROM
 		board_user
 		WHERE
-		user_idname = #{user_idname}
+		user_idname = #{userIdname}
 	</select>
 	
 	<select id="checkNickName" resultType="int">
 		SELECT count(*) FROM
 		board_user
 		WHERE
-		user_nickName = #{user_nickName}
+		user_nickName = #{userNickName}
 	</select>
 	
   </mapper>

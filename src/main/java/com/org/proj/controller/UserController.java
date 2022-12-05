@@ -42,8 +42,8 @@ public class UserController {
 		MainController.mainUrl="login";
 		UserVo vo = new UserVo();
 		idname = idname.replace(" ", "");
-		vo.setUser_idname(idname);
-		vo.setUser_password(pw);
+		vo.setUserIdname(idname);
+		vo.setUserPassword(pw);
 		vo = service.login(vo);
 		String url = "";
 		if (vo == null) {
@@ -52,7 +52,7 @@ public class UserController {
 			model.addAttribute("mainUrl", "main/" + url);
 			return "home";
 		} else {
-			rttr.addFlashAttribute("msg", MsgMaker.LOGIN_SUCCESS+vo.getUser_nickName()+"님 반갑습니다.");
+			rttr.addFlashAttribute("msg", MsgMaker.LOGIN_SUCCESS+vo.getUserNickName()+"님 반갑습니다.");
 			url = "main";
 			model.addAttribute("mainUrl", "main/" + url);
 			session.setAttribute("user", vo);
@@ -94,8 +94,8 @@ public class UserController {
 	public String signup_Post(RedirectAttributes rttr, HttpSession session, Model model, UserVo vo) throws Exception {
 		
 		
-		vo.setUser_profile("resources/imgs/default_profile.jpeg");
-		vo.setUser_email("");
+		vo.setUserProfile("resources/imgs/default_profile.jpeg");
+		vo.setUserEmail("");
 		model.addAttribute("msg", MsgMaker.SIGNUP);
 		
 		service.signup_main(vo);

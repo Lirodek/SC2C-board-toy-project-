@@ -10,5 +10,7 @@ public interface MsgMaker {
 	public final String LOGOUT = "로그아웃 하였습니다.";
 	
 	public final String SIGNUP = "회원가입에 성공했습니다. 로그인해주세요 :)";
+	
+	public final String FILE_PATH = "D:\\Developer\\githubSave\\SC2C-board-toy-project-\\images";
 
 }
