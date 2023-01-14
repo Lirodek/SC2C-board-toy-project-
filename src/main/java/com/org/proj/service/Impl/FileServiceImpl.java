@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-import com.org.proj.dao.FileMapper;
 import com.org.proj.domain.FileVo;
 import com.org.proj.service.FileService;
 
@@ -16,14 +15,19 @@ import com.org.proj.service.FileService;
 public class FileServiceImpl implements FileService{
 	
 	private static final Logger log = LoggerFactory.getLogger(FileServiceImpl.class);
-	
-	@Resource(name = "fileMapper")
-	FileMapper fileDao;
-	
+
 	@Override
 	public List<FileVo> selectFileList() throws Exception {
 		// TODO Auto-generated method stub
-		return fileDao.selectFileList();
+		return null;
 	}
+	
+
+	/*
+	@Override
+	public List<FileVo> selectFileList() throws Exception {
+		// TODO Auto-generated method stub
+		return ;
+	}*/
 
 }

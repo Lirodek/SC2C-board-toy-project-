@@ -9,13 +9,3 @@ import com.org.proj.domain.FileVo;
 
 
 
-@Configuration
-@MapperScan("com.org.proj.dao.FileMapper")
-public interface FileMapper {
-	
-	
-	public List<FileVo> selectFileList() throws Exception;
-	
-	
-}
-	
