@@ -42,11 +42,12 @@
 						<label for="basic-url">Your vanity URL</label>
 						<div class="input-group mb-3">
 						  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" style="width:700px" maxlength="500">
-						  <button type="button" class="btn btn-primary" style="margin-left: 20px">코드발급</button>
+						  <button id="complate" type="button" class="btn btn-primary" style="margin-left: 20px">코드발급</button>
 						</div>
 					</div>
 					<div class="panel-footer">
-						<blockquote id="resultUrl"></blockquote>
+					
+						<h3 id="resultUrl"></h3>
 					</div>
 				</div>
 			</div>
@@ -68,6 +69,9 @@
 		         return false;
 		     }
 		});
+		$('#complate').click(()=>{
+			fn_action();
+		});
 		
 	}
 	
@@ -79,6 +83,24 @@
 		resultCode += gitName + ' ' + gitUrl + ' master';
 		$('#resultUrl').empty();
 		$('#resultUrl').append(resultCode);
+		var textToCopy = document.getElementById("resultUrl");
+	    
+	    var range = document.createRange();
+	    range.selectNode(textToCopy);
+	    window.getSelection().removeAllRanges();
+	    window.getSelection().addRange(range);
+	    document.execCommand('copy');
+	    
+	    window.getSelection().removeAllRanges();
 		
 	}
+	
+	$(document).ready(function() {
+	    $(document).on("keydown", function(event) {
+	        if (event.key === "Enter") {
+	            // 엔터 키를 눌렀을 때 실행할 코드
+	        	fn_action();
+	        }
+	    });
+	});
 </script>
