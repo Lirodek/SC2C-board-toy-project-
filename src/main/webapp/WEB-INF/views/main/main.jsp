@@ -33,10 +33,9 @@
 	<div class="row">
 		<div class="col-md-4">
 			<h4>저그 게시판</h4>
-			<p>자가라의 지휘하의 케리건의 뒤를 이어 테란과 프로토스를 괴멸시키자.</p>
+			<p>깃 레파지토리 병합하기</p>
 			<p>
-				<a class="btn btn-default" data-target="#modal" data-toggle="modal">자세히
-					알아보기</a>
+				<a class="btn btn-default" id="gitRepo" data-toggle="modal">자세히 알아보기</a>
 			</p>
 		</div>
 		<div class="col-md-4">
@@ -95,3 +94,7 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$('#gitRepo').click(() => document.location = '/util/instructor');
+</script>
